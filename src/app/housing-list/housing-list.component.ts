@@ -1,5 +1,7 @@
 //Utilizando Input como decorador de entrada (componente receber valor de um modelo html)
-import { Component, OnInit, Input } from '@angular/core';
+//Output permite que os componentes enviem um evento com os dados do filho para o componente pai
+//EventEmitter notifica os listeners de eventos
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HousingLocation } from '../housing-location';
 
 @Component({
@@ -9,6 +11,17 @@ import { HousingLocation } from '../housing-location';
 })
 
 export class HousingListComponent implements OnInit {
+
+  //locationSelectedEvent foi decorada com o Output, oq faz com que ela faça parte da API deste componente
+  //Generics para fornecer o tipo HousingLocation
+  //Quando um evento é emitido pelo locationSelectedEvent, os listeners do evento podem esperar que os dados correspondentes sejam do tipo HousingLocation
+  @Output() locationSelectedEvent = new EventEmitter<HousingLocation>();
+
+  //acionar método ao clicar botão View
+  selectHousingLocation(location: HousingLocation) {
+    //emita um novo evento do emissor locationSelectedEvent. O valor emitido é o local selecionado pelo usuário.
+    this.locationSelectedEvent.emit(location);
+  }
 
   //utilizando Input como decorador para locationList
   @Input() locationList: HousingLocation[] = [];

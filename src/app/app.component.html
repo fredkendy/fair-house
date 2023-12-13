@@ -4,6 +4,16 @@
     <section>
         <!-- Chamando o novo componente -->
         <!-- locationList precisa estar entre [] p/ o angular vincular dinamicamente o valor de locationList a uma variavel -->
-        <app-housing-list [locationList]="housingLocationList"></app-housing-list>
+        <!-- Ouvindo o locationSelectedEvent e processar o evento com o método updateSelectedLocation -->
+        <!-- O $event é fornecido pelo Angular ao lidar com manipuladores de eventos em modelos. O argumento $event é um objeto do tipo HousingLocation porque é esse que definimos o parâmetro de tipo EventEmitter -->
+        <app-housing-list [locationList]="housingLocationList" (locationSelectedEvent)="updateSelectedLocation($event)"></app-housing-list>
+        <article>
+            <img [src]="selectedLocation?.photo">
+            <p>{{selectedLocation?.name}}</p>
+            <p>{{selectedLocation?.availableUnits}}</p>
+            <p>{{selectedLocation?.city}}, {{selectedLocation?.state}}</p>
+            <p>{{selectedLocation?.laundry ? "Has laundry" : "Does Not have laundry"}}</p>
+            <p>{{selectedLocation?.wifi ? "Has wifi" : "Does Not have wifi"}}</p>
+           </article>
     </section>
 </main>
