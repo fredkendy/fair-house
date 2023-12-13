@@ -9,7 +9,6 @@ import { HousingLocation } from './housing-location';
 
 export class AppComponent {
   title = 'fairhouse';
-  selectedLocation: HousingLocation | undefined;
 
   //propriedade do tipo HousingLocation[] (interface de housing-location.ts)
   housingLocationList: HousingLocation[] = [
@@ -42,9 +41,10 @@ export class AppComponent {
     }
   ];
 
+  selectedLocation: HousingLocation | undefined;
+
   updateSelectedLocation(location: HousingLocation) {
     this.selectedLocation = location;
   } 
   
-  searchHousingLocations() {}
 }
