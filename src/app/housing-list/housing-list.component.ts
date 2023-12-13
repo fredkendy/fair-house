@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+//Utilizando Input como decorador de entrada (componente receber valor de um modelo html)
+import { Component, OnInit, Input } from '@angular/core';
+import { HousingLocation } from '../housing-location';
 
 @Component({
   selector: 'app-housing-list',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HousingListComponent implements OnInit {
+
+  //utilizando Input como decorador para locationList
+  @Input() locationList: HousingLocation[] = [];
 
   constructor() { }
 

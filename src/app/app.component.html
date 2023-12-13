@@ -3,6 +3,7 @@
     <header><img src="../assets/logo.svg" alt="fairhouse">Fairhouse</header>
     <section>
         <!-- Chamando o novo componente -->
-        <app-housing-list></app-housing-list>
+        <!-- locationList precisa estar entre [] p/ o angular vincular dinamicamente o valor de locationList a uma variavel -->
+        <app-housing-list [locationList]="housingLocationList"></app-housing-list>
     </section>
 </main>
