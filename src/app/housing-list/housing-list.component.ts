@@ -5,11 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './housing-list.component.html',
   styleUrls: ['./housing-list.component.css']
 })
+
 export class HousingListComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  //Recebe parametro do botão no html
+  searchHousingLocations(searchText: string) {
+    console.log(searchText);
   }
 
 }

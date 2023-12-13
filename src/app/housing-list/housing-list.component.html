@@ -1,2 +1,5 @@
 <label for="location-search">Search for a new place </label> 
-<input id="location-search" placeholder="Ex: Chicago"><button>Search</button>
+<!-- #search: referencia à entrada de dados do input (capturar o que foi digitado, dá acesso a propriedade .value) -->
+<input id="location-search" #search placeholder="Ex: Chicago">
+<!-- Definir o método no arquivo ts. search.value transmite o valor como parametro para o método -->
+<button (click)="searchHousingLocations(search.value)">Search</button>
