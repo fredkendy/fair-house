@@ -5,7 +5,7 @@
 <button (click)="searchHousingLocations(search.value)">Search</button>
 <!-- *ngFor. Assim, você poderá exibir as entradas da matriz no navegador -->
 <!-- O ngFor repete um elemento de artigo para cada entrada da matriz de locationList. Em seguida, você exibirá valores da variável de local. -->
-<article *ngFor="let location of locationList">
+<article *ngFor="let location of results">
     <p>{{ location.name }}</p>
 </article>
 
